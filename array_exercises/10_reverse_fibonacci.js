@@ -1,37 +1,17 @@
 function reverseFibonacci(n) {
-  if (n === 0) return [0];
+  if (n === 0) return [];
+  if (n === 1) return [0];
 
-  const fiboArr = [];
-  let curr = 0;
-  let next = 1;
+  const arr = [1, 0];
 
-  for (let i = 0; i < n; i++) {
-    fiboArr.unshift(curr);
-
-    const temp = curr;
-    curr = next;
-    next += temp;
+  for (let i = 2; i < n; i++) {
+    const curr = arr.at(1) + arr.at(0);
+    arr.unshift(curr);
   }
 
-  return fiboArr;
+  return arr;
 }
 
-function fibo(n) {
-  if (n === 1 || n === 0) return n;
-
-  return fibo(n - 1) + fibo(n - 2);
-}
-
-function revFibonacci(n) {
-  const fiboArr = [];
-
-  for (let i = n - 1; i >= 0; i--) {
-    fiboArr.push(fibo(i));
-  }
-
-  return fiboArr;
-}
-
-console.log(revFibonacci(6));
-console.log(revFibonacci(4));
-console.log(revFibonacci(10));
+console.log(reverseFibonacci(5));
+console.log(reverseFibonacci(4));
+console.log(reverseFibonacci(10));
